@@ -1,15 +1,12 @@
 # =====================================================
-# FlashGet — Render.com Deployment Blueprint
+# FlashGet ⚡ — Render.com Displacement Blueprint
 # =====================================================
 
 services:
-
   - type: web
     name: flashget-api
     runtime: docker
-    repo: https://github.com/Aswinajay/universal-media-downloader
-    branch: main
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: Dockerfile
     dockerContext: .
     plan: free
     region: oregon
