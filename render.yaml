@@ -1,6 +1,5 @@
 # =====================================================
 # FlashGet — Render.com Deployment Blueprint
-# Deploy at: https://render.com/deploy
 # =====================================================
 
 services:
@@ -8,10 +7,10 @@ services:
   - type: web
     name: flashget-api
     runtime: docker
-    dockerfilePath: server/Dockerfile
+    dockerfilePath: ./Dockerfile
     dockerContext: .
-    plan: free          # Render.com free tier
-    region: oregon      # or: ohio, singapore, frankfurt
+    plan: free
+    region: oregon
 
     envVars:
       - key: NODE_ENV
@@ -22,6 +21,4 @@ services:
         value: yt-dlp
 
     healthCheckPath: /health
-
-    # Auto-deploy on every push to main branch
     autoDeploy: true
