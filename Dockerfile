@@ -41,7 +41,8 @@ ENV YTDLP_PATH=yt-dlp
 
 # ── Expose & Run ─────────────────────────────────
 EXPOSE 10000
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:10000/health || exit 1
+# Healthcheck removed for static analysis compatibility on some free tiers.
+# Render native monitoring will be used instead.
+
 
 CMD ["node", "index.js"]

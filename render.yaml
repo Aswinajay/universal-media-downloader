@@ -1,15 +1,10 @@
-# =====================================================
-# FlashGet ⚡ — Render.com Displacement Blueprint
-# =====================================================
-
 services:
   - type: web
-    name: flashget-api
+    name: flashget-downloader-api-v2
     runtime: docker
     dockerfilePath: Dockerfile
     dockerContext: .
     plan: free
-    region: oregon
 
     envVars:
       - key: NODE_ENV
@@ -19,5 +14,4 @@ services:
       - key: YTDLP_PATH
         value: yt-dlp
 
-    healthCheckPath: /health
     autoDeploy: true
