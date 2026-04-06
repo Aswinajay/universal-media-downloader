@@ -1,0 +1,28 @@
+{
+  "name": "universal-media-downloader-extension",
+  "version": "2.0.0",
+  "description": "High-performance browser extension to download video & audio from YouTube, Instagram, Facebook, TikTok, Twitter, and more. Featuring a robust self-hosted Render.com backend using yt-dlp.",
+  "keywords": [
+    "youtube downloader",
+    "instagram downloader",
+    "facebook video downloader",
+    "tiktok downloader",
+    "twitter video downloader",
+    "media downloader chrome extension",
+    "yt-dlp",
+    "fast media downloader",
+    "render.com",
+    "browser extension",
+    "downloader backend"
+  ],
+  "author": "FlashGet Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aswinajay949/universal-media-downloader"
+  },
+  "bugs": {
+    "url": "https://github.com/aswinajay949/universal-media-downloader/issues"
+  },
+  "homepage": "https://github.com/aswinajay949/universal-media-downloader#readme"
+}

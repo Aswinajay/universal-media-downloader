@@ -1,0 +1,92 @@
+{
+  "manifest_version": 3,
+  "name": "FlashGet — Universal Media Downloader",
+  "short_name": "FlashGet",
+  "description": "Download videos from YouTube, Instagram, Facebook, Twitter/X, TikTok, Reddit, Vimeo, Dailymotion and any website instantly.",
+  "version": "2.0.0",
+  "author": "FlashGet Team",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "FlashGet — Universal Media Downloader",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://www.instagram.com/*",
+        "https://instagram.com/*",
+        "https://www.facebook.com/*",
+        "https://facebook.com/*",
+        "https://www.twitter.com/*",
+        "https://twitter.com/*",
+        "https://x.com/*",
+        "https://www.tiktok.com/*",
+        "https://tiktok.com/*",
+        "https://www.reddit.com/*",
+        "https://reddit.com/*",
+        "https://vimeo.com/*",
+        "https://www.vimeo.com/*",
+        "https://www.dailymotion.com/*",
+        "https://dailymotion.com/*",
+        "https://www.twitch.tv/*",
+        "https://twitch.tv/*",
+        "https://www.pinterest.com/*",
+        "https://pinterest.com/*",
+        "https://www.linkedin.com/*",
+        "https://linkedin.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "downloads",
+    "storage",
+    "activeTab",
+    "scripting",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://www.instagram.com/*",
+    "https://instagram.com/*",
+    "https://www.facebook.com/*",
+    "https://facebook.com/*",
+    "https://www.twitter.com/*",
+    "https://twitter.com/*",
+    "https://x.com/*",
+    "https://www.tiktok.com/*",
+    "https://tiktok.com/*",
+    "https://www.reddit.com/*",
+    "https://reddit.com/*",
+    "https://vimeo.com/*",
+    "https://www.dailymotion.com/*",
+    "https://www.twitch.tv/*",
+    "https://www.pinterest.com/*",
+    "https://www.linkedin.com/*",
+    "https://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["modal.html", "icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

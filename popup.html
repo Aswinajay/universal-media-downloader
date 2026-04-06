@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlashGet — Universal Media Downloader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-root">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-brand">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div>
+          <div class="brand-name">FlashGet</div>
+          <div class="brand-tagline">Universal Downloader</div>
+        </div>
+      </div>
+      <div class="status-badge" id="status-badge">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Checking…</span>
+      </div>
+    </header>
+
+    <!-- Current Page -->
+    <div class="current-page-card" id="current-page-card">
+      <div class="page-icon" id="page-platform-icon">🌐</div>
+      <div class="page-info">
+        <div class="page-platform" id="page-platform">Detecting…</div>
+        <div class="page-url" id="page-url">—</div>
+      </div>
+    </div>
+
+    <!-- Quick Download -->
+    <section class="section">
+      <div class="section-label">Quick Download</div>
+      <button class="primary-btn" id="download-current-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Current Page
+      </button>
+    </section>
+
+    <!-- URL Input -->
+    <section class="section">
+      <div class="section-label">Paste any URL</div>
+      <div class="url-input-wrap">
+        <input type="url" id="manual-url" class="url-input" placeholder="https://..." />
+        <button class="url-paste-btn" id="paste-btn" title="Paste">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+      <button class="secondary-btn" id="download-manual-btn">⚡ Get Media</button>
+    </section>
+
+    <!-- Settings -->
+    <section class="section">
+      <div class="section-label">Default Settings</div>
+      <div class="settings-grid">
+        <div class="setting-item">
+          <label class="setting-label" for="default-quality">Quality</label>
+          <select id="default-quality" class="setting-select">
+            <option value="best">Best Available</option>
+            <option value="1080">1080p (FHD)</option>
+            <option value="720">720p (HD)</option>
+            <option value="480">480p</option>
+            <option value="360">360p</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label class="setting-label" for="default-format">Format</label>
+          <select id="default-format" class="setting-select">
+            <option value="mp4">MP4 Video</option>
+            <option value="mp3">MP3 Audio</option>
+            <option value="webm">WEBM</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Backend URL -->
+    <section class="section">
+      <div class="section-label">Backend Server</div>
+      <div class="url-input-wrap">
+        <input type="url" id="backend-url" class="url-input" placeholder="https://your-app.onrender.com" />
+      </div>
+      <button class="save-btn" id="save-backend-btn">Save Backend URL</button>
+      <div class="backend-hint">Deploy your backend on Render.com → copy URL here</div>
+    </section>
+
+    <!-- Supported Platforms -->
+    <section class="section">
+      <div class="section-label">Supported Platforms</div>
+      <div class="platforms-grid">
+        <div class="platform-chip" title="YouTube">📺 YouTube</div>
+        <div class="platform-chip" title="Instagram">📸 Instagram</div>
+        <div class="platform-chip" title="Facebook">👥 Facebook</div>
+        <div class="platform-chip" title="Twitter/X">🐦 Twitter/X</div>
+        <div class="platform-chip" title="TikTok">🎵 TikTok</div>
+        <div class="platform-chip" title="Reddit">🤖 Reddit</div>
+        <div class="platform-chip" title="Vimeo">🎬 Vimeo</div>
+        <div class="platform-chip" title="Dailymotion">▶ Dailymotion</div>
+        <div class="platform-chip" title="Twitch">🎮 Twitch</div>
+        <div class="platform-chip" title="+ 1000 more" style="opacity:0.6">✦ 1000+ more</div>
+      </div>
+    </section>
+
+    <!-- Status Message -->
+    <div class="popup-status" id="popup-status"></div>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <span>FlashGet v2.0</span>
+      <span class="footer-dot">·</span>
+      <span>Powered by yt-dlp</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
