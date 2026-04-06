@@ -1,9 +1,10 @@
 services:
   - type: web
-    name: flashget-downloader-api-v2
-    runtime: docker
-    dockerfilePath: Dockerfile
-    dockerContext: .
+    name: flashget-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install && pip install --upgrade yt-dlp
+    startCommand: node index.js
     plan: free
 
     envVars:
